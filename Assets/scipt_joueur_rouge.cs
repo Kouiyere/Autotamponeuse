@@ -6,7 +6,7 @@ using UnityEngine.XR;
 using static UnityEngine.GraphicsBuffer;
 using UnityEngine.InputSystem;
 
-public class scipt_joueur2 : MonoBehaviour
+public class scipt_joueur_rouge : MonoBehaviour
 {
     // E=push,Z=acsélération,S=frein,souris"Y"=déviation;
     Vector3 back=new Vector3(1,-1,1);

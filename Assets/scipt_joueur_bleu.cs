@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.XR;
 using static UnityEngine.GraphicsBuffer;
 
-public class scipt_joueur : MonoBehaviour
+public class scipt_joueur_bleu : MonoBehaviour
 {
     // P=push,"haut"=acsélération,"bas"=frein,souris"X"=déviation;
     public int puch = 1;
