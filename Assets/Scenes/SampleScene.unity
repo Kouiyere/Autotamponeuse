@@ -253,8 +253,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 10, y: 18, z: 20}
+  m_Center: {x: 0, y: 10, z: 0}
 --- !u!54 &215771328
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -282,7 +282,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &215771329
+--- !u!114 &215771331
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -291,14 +291,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 215771325}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78be28eab2d1f474e88a00c6d2f534ef, type: 3}
+  m_Script: {fileID: 11500000, guid: 5dcf135c1771f2e47b29dd6e70fc6aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rebond: 1
   speed_angle: 10
   "acs\xE9l\xE9ration": 40
-  frein: 1
-  puch: 120
+  frein: 10
+  puch: 1
 --- !u!1 &458826857
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 458826858}
   m_Layer: 0
   m_Name: GameObject (1)
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -335,8 +335,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 15, y: 1, z: 40}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 15, y: 50, z: 40}
+  m_Center: {x: 0, y: 40, z: 0}
 --- !u!4 &458826859
 Transform:
   m_ObjectHideFlags: 0
@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 539777719}
   m_Layer: 0
   m_Name: GameObject (6)
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -388,8 +388,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 15, y: 1, z: 70}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 15, y: 50, z: 70}
+  m_Center: {x: 0, y: 40, z: 0}
 --- !u!4 &539777720
 Transform:
   m_ObjectHideFlags: 0
@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 722602888}
   m_Layer: 0
   m_Name: GameObject (4)
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -535,8 +535,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 15, y: 1, z: 40}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 15, y: 50, z: 40}
+  m_Center: {x: 0, y: 40, z: 0}
 --- !u!4 &722602889
 Transform:
   m_ObjectHideFlags: 0
@@ -576,8 +576,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 4, y: 4, z: 2}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!54 &755297474
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -605,7 +605,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &755297478
+--- !u!114 &755297480
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -614,14 +614,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 755297472}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b14768b83b527ad4c9d39f07d97a2828, type: 3}
+  m_Script: {fileID: 11500000, guid: cd8dac2ce9b8dc74db3ca499be181bad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puch: 120
+  puch: 1
   rebond: 1
   speed_angle: 10
   "acs\xE9l\xE9ration": 40
-  frein: 1
+  frein: 10
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,7 +842,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6943cc4b2c1303b4e8dcabc79406bcd4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 755297478}
+      addedObject: {fileID: 755297480}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6943cc4b2c1303b4e8dcabc79406bcd4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 755297474}
@@ -862,7 +862,7 @@ GameObject:
   - component: {fileID: 1518845990}
   m_Layer: 0
   m_Name: GameObject (5)
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -886,8 +886,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 15, y: 1, z: 40}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 15, y: 50, z: 40}
+  m_Center: {x: 0, y: 40, z: 0}
 --- !u!4 &1518845991
 Transform:
   m_ObjectHideFlags: 0
@@ -1129,7 +1129,7 @@ GameObject:
   - component: {fileID: 1903513722}
   m_Layer: 0
   m_Name: GameObject (3)
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1153,8 +1153,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 15, y: 1, z: 100}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 15, y: 50, z: 100}
+  m_Center: {x: 0, y: 40, z: 0}
 --- !u!4 &1903513723
 Transform:
   m_ObjectHideFlags: 0
@@ -1272,7 +1272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1cbf6393c577a9d4fbf5373f37c96870, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.89
+      value: 29.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1cbf6393c577a9d4fbf5373f37c96870, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1340,7 +1340,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 9d43a43c3b2327f4aa9ee2b06cdd0e05, type: 2}
     - target: {fileID: 7997351832304706054, guid: 1cbf6393c577a9d4fbf5373f37c96870, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.34
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 7997351832304706054, guid: 1cbf6393c577a9d4fbf5373f37c96870, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1366,7 +1366,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cbf6393c577a9d4fbf5373f37c96870, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 215771329}
+      addedObject: {fileID: 215771331}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cbf6393c577a9d4fbf5373f37c96870, type: 3}
       insertIndex: -1
       addedObject: {fileID: 215771328}
@@ -1386,7 +1386,7 @@ GameObject:
   - component: {fileID: 2142979412}
   m_Layer: 0
   m_Name: GameObject (2)
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1410,8 +1410,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 15, y: 1, z: 100}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 15, y: 50, z: 100}
+  m_Center: {x: 0, y: 40, z: 0}
 --- !u!4 &2142979413
 Transform:
   m_ObjectHideFlags: 0

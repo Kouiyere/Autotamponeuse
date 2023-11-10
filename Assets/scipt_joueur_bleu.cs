@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 using UnityEngine.XR;
 using static UnityEngine.GraphicsBuffer;
 
@@ -57,7 +58,8 @@ public class scipt_joueur_bleu : MonoBehaviour
             if (timer_rember > 0.5f)
             {
                 timer_rember = -1;
-                Gamepad.current.SetMotorSpeeds(0, 0);
+                var player_rouge = InputSystem.GetDevice<Gamepad>(new InternedString("player_rouge"));
+                player_rouge.SetMotorSpeeds(0, 0);
 
             }
             timer_rember += Time.deltaTime;

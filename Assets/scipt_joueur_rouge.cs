@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.XR;
 using static UnityEngine.GraphicsBuffer;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 
 public class scipt_joueur_rouge : MonoBehaviour
 {
@@ -19,10 +20,13 @@ public class scipt_joueur_rouge : MonoBehaviour
     private bool Flag_acseleration=false;
     private bool Flag_frein=false;
     private Vector3 transform_forward;
+    //private var player_rouge;
 
     // Start is called before the first frame update
     void Start()
     {
+        InputSystem.SetDeviceUsage(Gamepad.all[0], "player_rouge");
+       //var player_rouge = InputSystem.GetDevice<Gamepad>(new InternedString("player_rouge"));
         transform_forward = Vector3.forward;
     }
     // Update is called once per frame
@@ -51,12 +55,14 @@ public class scipt_joueur_rouge : MonoBehaviour
 
      void Update()
     {
+
         // transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0); 
         if (timer_rember > -1)
         {
-            if(timer_rember > 0.5f) { 
+            if(timer_rember > 0.5f) {
                 timer_rember = -1;
-                Gamepad.current.SetMotorSpeeds(0, 0);
+                var player_rouge = InputSystem.GetDevice<Gamepad>(new InternedString("player_rouge"));
+                player_rouge.SetMotorSpeeds(0, 0);
 
             }
             timer_rember += Time.deltaTime;
@@ -84,7 +90,8 @@ public class scipt_joueur_rouge : MonoBehaviour
           //  Rigidbody Rigidbody = other.gameObject.GetComponent<Rigidbody>();
             print("vibration_2");
             timer_rember = 0;
-            Gamepad.current.SetMotorSpeeds(0.5f, 0.5f);
+            var player_rouge = InputSystem.GetDevice<Gamepad>(new InternedString("player_rouge"));
+            player_rouge.SetMotorSpeeds(0.5f, 0.5f);
 
             // Vérifie si la balle a un Rigidbody
             /* if (Rigidbody != null)
