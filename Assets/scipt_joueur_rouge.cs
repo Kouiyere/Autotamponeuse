@@ -43,7 +43,7 @@ public class scipt_joueur_rouge : MonoBehaviour
         if (Flag_frein)
         {
             print("frein");
-            GetComponent<Rigidbody>().AddForce( transform.forward * frein, ForceMode.Force);
+            GetComponent<Rigidbody>().AddForce((Quaternion.AngleAxis(180, Vector3.up)) * transform.forward * frein, ForceMode.Force);
         }
         Debug.DrawRay(transform.position, transform.forward,Color.red);
     }
