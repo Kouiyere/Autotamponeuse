@@ -13,7 +13,7 @@ public class scipt_joueur_bleu : MonoBehaviour
     public int puch = 1;
     float timer_rember = -1;
     Vector3 back =new Vector3(1,-1,1);
-    public float rebond= 1;
+    public float rebond = 1;
     public float speed_angle = 10.0f; // Vitesse de rotation
     public int acseleration = 40;
     public int frein = 40;
@@ -24,7 +24,7 @@ public class scipt_joueur_bleu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InputSystem.SetDeviceUsage(Gamepad.all[0], "player_bleu");
+        InputSystem.SetDeviceUsage(Gamepad.all[1], "player_bleu");
         transform_forward = Vector3.forward;
     }
     // Update is called once per frame
@@ -39,12 +39,10 @@ public class scipt_joueur_bleu : MonoBehaviour
         transform_forward = Quaternion.AngleAxis(horizontal, Vector3.up) * transform_forward;
         if (Flag_acseleration)
         {
-            print("tomacseleration");
             GetComponent<Rigidbody>().AddForce((Quaternion.AngleAxis(90, Vector3.up) * transform.forward) * acseleration, ForceMode.Acceleration);
         }
         if (Flag_frein)
         {
-            print("frein");
             GetComponent<Rigidbody>().AddForce((Quaternion.AngleAxis(-90, Vector3.up) * transform.forward) * frein, ForceMode.Force);
         }
         Debug.DrawRay(transform.position, transform.forward,Color.red);
@@ -67,13 +65,11 @@ public class scipt_joueur_bleu : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         { Flag_acseleration = true;
-            print("Up");
         }       
         if (Input.GetKeyUp(KeyCode.UpArrow))
         { Flag_acseleration = false; }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         { Flag_frein = true;
-            print("Down");
         }
         if (Input.GetKeyUp(KeyCode.DownArrow))
         { Flag_frein = false; }
@@ -85,30 +81,30 @@ public class scipt_joueur_bleu : MonoBehaviour
         print("touch");
         if (other.gameObject.tag == "wall")
         {
-            
-            // Rigidbody Rigidbody = other.gameObject.GetComponent<Rigidbody>();
+
+            Rigidbody Rigidbody = GetComponent<Rigidbody>();
             print("vribation_1");
             timer_rember = 0;
             var player_bleu = InputSystem.GetDevice<Gamepad>(new InternedString("player_bleu"));
             player_bleu.SetMotorSpeeds(1000,1000);
             // V�rifie si la balle a un Rigidbody
-            /* if (Rigidbody != null)
-             {
-                 print("colision");
-                 Transform cible = other.transform;
-                 Vector3 toTarget = cible.transform.position - GetComponent<Transform>().position;
-                 Vector3 direction = toTarget.normalized;
+            
+                print("colision");
+                Transform cible = other.transform;
+                Vector3 toTarget = cible.transform.position - transform.position;
+                Vector3 direction = toTarget.normalized;
+            direction.y = 0;
 
-                 float angle = Vector3.Angle(Rigidbody.velocity, toTarget);
-                 if (angle > 180)
-                 {
-                     angle = angle - 180;
-                 }
-                 float ressor = (Rigidbody.velocity.magnitude) * ((angle - 90) / 90 + 1) * rebond;
-                 print("valeur de la r�action du bumper : " + ressor);
-                 print("valeur de l'angle d'incidence : " + angle);
-                 Rigidbody.AddForce(direction * ressor, ForceMode.Impulse);
-             }*/
+                float angle = Vector3.Angle(Rigidbody.velocity, toTarget);
+                if (angle > 180)
+                {
+                    angle = angle - 180;
+                }
+                float ressor = (Rigidbody.velocity.magnitude) * ((angle - 90) / 90 + 1) * rebond;
+                print("valeur de la r�action du bumper : " + ressor);
+                print("valeur de l'angle d'incidence : " + angle);
+                Rigidbody.AddForce(-direction * ressor, ForceMode.Impulse);
+            
         }
     }
 }

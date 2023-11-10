@@ -87,19 +87,20 @@ public class scipt_joueur_rouge : MonoBehaviour
         print("touch");
         if (other.gameObject.tag=="wall")
         {
-          //  Rigidbody Rigidbody = other.gameObject.GetComponent<Rigidbody>();
+          Rigidbody Rigidbody = GetComponent<Rigidbody>();
             print("vibration_2");
             timer_rember = 0;
             var player_rouge = InputSystem.GetDevice<Gamepad>(new InternedString("player_rouge"));
             player_rouge.SetMotorSpeeds(1, 1);
 
             // Vérifie si la balle a un Rigidbody
-            /* if (Rigidbody != null)
+             if (Rigidbody != null)
              {
                  print("colision");
                  Transform cible = other.transform;
-                 Vector3 toTarget = cible.transform.position - GetComponent<Transform>().position;
+                 Vector3 toTarget = cible.transform.position - transform.position;
                  Vector3 direction = toTarget.normalized;
+                direction.y = 0;
 
                  float angle = Vector3.Angle(Rigidbody.velocity, toTarget);
                  if (angle > 180)
@@ -109,8 +110,8 @@ public class scipt_joueur_rouge : MonoBehaviour
                  float ressor = (Rigidbody.velocity.magnitude) * ((angle - 90) / 90 + 1) * rebond;
                  print("valeur de la réaction du bumper : " + ressor);
                  print("valeur de l'angle d'incidence : " + angle);
-                 Rigidbody.AddForce(direction * ressor, ForceMode.Impulse);
-             }*/
+                 Rigidbody.AddForce(-direction * ressor, ForceMode.Impulse);
+             }
         }
     }
 }
