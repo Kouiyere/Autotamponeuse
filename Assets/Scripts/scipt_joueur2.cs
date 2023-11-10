@@ -8,12 +8,12 @@ using UnityEngine.InputSystem;
 
 public class scipt_joueur2 : MonoBehaviour
 {
-    // T=push,R=acsélération,S=frein,souris"Y"=déviation;
+    // T=push,R=acsÃ©lÃ©ration,S=frein,souris"Y"=dÃ©viation;
     Vector3 back=new Vector3(1,-1,1);
     float timer_rember = -1;
     public float rebond= 1;
     public float speed_angle = 10.0f; 
-    public int acsélération = 10;
+    public int acsÃ©lÃ©ration = 10;
     public int frein = 1;
     public int puch = 1;
     private bool Flag_acseleration=false;
@@ -38,7 +38,7 @@ public class scipt_joueur2 : MonoBehaviour
         if (Flag_acseleration)
         {
             print("tomacseleration");
-            GetComponent<Rigidbody>().AddForce( transform.forward * acsélération, ForceMode.Acceleration);
+            GetComponent<Rigidbody>().AddForce( transform.forward * acsÃ©lÃ©ration, ForceMode.Acceleration);
         }
         if (Flag_frein)
         {
@@ -61,11 +61,11 @@ public class scipt_joueur2 : MonoBehaviour
             }
             timer_rember += Time.deltaTime;
         }
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.Z))
         { Flag_acseleration = true;
             print("puch_R");
         }
-        if (Input.GetKeyUp(KeyCode.R))
+        if (Input.GetKeyUp(KeyCode.Z))
         { Flag_acseleration = false; }
         if (Input.GetKeyDown(KeyCode.S))
         { Flag_frein = true;
@@ -86,7 +86,7 @@ public class scipt_joueur2 : MonoBehaviour
             timer_rember = 0;
             Gamepad.current.SetMotorSpeeds(0.5f, 0.5f);
 
-            // Vérifie si la balle a un Rigidbody
+            // VÃ©rifie si la balle a un Rigidbody
             /* if (Rigidbody != null)
              {
                  print("colision");
@@ -100,7 +100,7 @@ public class scipt_joueur2 : MonoBehaviour
                      angle = angle - 180;
                  }
                  float ressor = (Rigidbody.velocity.magnitude) * ((angle - 90) / 90 + 1) * rebond;
-                 print("valeur de la réaction du bumper : " + ressor);
+                 print("valeur de la rÃ©action du bumper : " + ressor);
                  print("valeur de l'angle d'incidence : " + angle);
                  Rigidbody.AddForce(direction * ressor, ForceMode.Impulse);
              }*/
