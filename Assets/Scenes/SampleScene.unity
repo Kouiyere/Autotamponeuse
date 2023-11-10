@@ -297,7 +297,7 @@ MonoBehaviour:
   rebond: 1
   speed_angle: 10
   "acs\xE9l\xE9ration": 40
-  frein: 10
+  frein: 40
   puch: 1
 --- !u!1 &458826857
 GameObject:
@@ -621,7 +621,7 @@ MonoBehaviour:
   rebond: 1
   speed_angle: 10
   "acs\xE9l\xE9ration": 40
-  frein: 10
+  frein: 40
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
