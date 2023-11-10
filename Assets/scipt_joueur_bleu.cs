@@ -9,13 +9,13 @@ using static UnityEngine.GraphicsBuffer;
 
 public class scipt_joueur_bleu : MonoBehaviour
 {
-    // P=push,"haut"=acsélération,"bas"=frein,souris"X"=déviation;
+    // P=push,"haut"=acs�l�ration,"bas"=frein,souris"X"=d�viation;
     public int puch = 1;
     float timer_rember = -1;
     Vector3 back =new Vector3(1,-1,1);
     public float rebond= 1;
     public float speed_angle = 10.0f; // Vitesse de rotation
-    public int acsélération = 40;
+    public int acseleration = 40;
     public int frein = 40;
     private bool Flag_acseleration=false;
     private bool Flag_frein=false;
@@ -24,6 +24,7 @@ public class scipt_joueur_bleu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        InputSystem.SetDeviceUsage(Gamepad.all[0], "player_bleu");
         transform_forward = Vector3.forward;
     }
     // Update is called once per frame
@@ -39,7 +40,7 @@ public class scipt_joueur_bleu : MonoBehaviour
         if (Flag_acseleration)
         {
             print("tomacseleration");
-            GetComponent<Rigidbody>().AddForce((Quaternion.AngleAxis(90, Vector3.up) * transform.forward) * acsélération, ForceMode.Acceleration);
+            GetComponent<Rigidbody>().AddForce((Quaternion.AngleAxis(90, Vector3.up) * transform.forward) * acseleration, ForceMode.Acceleration);
         }
         if (Flag_frein)
         {
@@ -58,8 +59,8 @@ public class scipt_joueur_bleu : MonoBehaviour
             if (timer_rember > 0.5f)
             {
                 timer_rember = -1;
-                var player_rouge = InputSystem.GetDevice<Gamepad>(new InternedString("player_rouge"));
-                player_rouge.SetMotorSpeeds(0, 0);
+                var player_bleu = InputSystem.GetDevice<Gamepad>(new InternedString("player_bleu"));
+                player_bleu.SetMotorSpeeds(0, 0);
 
             }
             timer_rember += Time.deltaTime;
@@ -88,8 +89,9 @@ public class scipt_joueur_bleu : MonoBehaviour
             // Rigidbody Rigidbody = other.gameObject.GetComponent<Rigidbody>();
             print("vribation_1");
             timer_rember = 0;
-            Gamepad.current.SetMotorSpeeds(0.5f, 0.5f);
-            // Vérifie si la balle a un Rigidbody
+            var player_bleu = InputSystem.GetDevice<Gamepad>(new InternedString("player_bleu"));
+            player_bleu.SetMotorSpeeds(1000,1000);
+            // V�rifie si la balle a un Rigidbody
             /* if (Rigidbody != null)
              {
                  print("colision");
@@ -103,7 +105,7 @@ public class scipt_joueur_bleu : MonoBehaviour
                      angle = angle - 180;
                  }
                  float ressor = (Rigidbody.velocity.magnitude) * ((angle - 90) / 90 + 1) * rebond;
-                 print("valeur de la réaction du bumper : " + ressor);
+                 print("valeur de la r�action du bumper : " + ressor);
                  print("valeur de l'angle d'incidence : " + angle);
                  Rigidbody.AddForce(direction * ressor, ForceMode.Impulse);
              }*/

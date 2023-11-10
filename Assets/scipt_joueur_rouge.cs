@@ -91,7 +91,7 @@ public class scipt_joueur_rouge : MonoBehaviour
             print("vibration_2");
             timer_rember = 0;
             var player_rouge = InputSystem.GetDevice<Gamepad>(new InternedString("player_rouge"));
-            player_rouge.SetMotorSpeeds(0.5f, 0.5f);
+            player_rouge.SetMotorSpeeds(1, 1);
 
             // Vérifie si la balle a un Rigidbody
             /* if (Rigidbody != null)
