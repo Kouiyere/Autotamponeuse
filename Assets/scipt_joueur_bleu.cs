@@ -15,8 +15,8 @@ public class scipt_joueur_bleu : MonoBehaviour
     Vector3 back =new Vector3(1,-1,1);
     public float rebond= 1;
     public float speed_angle = 10.0f; // Vitesse de rotation
-    public int acsélération = 10;
-    public int frein = 1;
+    public int acsélération = 20;
+    public int frein = 10;
     private bool Flag_acseleration=false;
     private bool Flag_frein=false;
     private Vector3 transform_forward;
