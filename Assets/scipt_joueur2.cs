@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.XR;
 using static UnityEngine.GraphicsBuffer;
+using UnityEngine.InputSystem;
 
-public class scipt_joueur : MonoBehaviour
+public class scipt_joueur2 : MonoBehaviour
 {
-    // P=push,"haut"=acsélération,"bas"=frein,souris"X"=déviation;
-    public int puch = 1;
+    // T=push,R=acsélération,S=frein,souris"Y"=déviation;
+    Vector3 back=new Vector3(1,-1,1);
     float timer_rember = -1;
-    Vector3 back =new Vector3(1,-1,1);
     public float rebond= 1;
-    public float speed_angle = 10.0f; // Vitesse de rotation
+    public float speed_angle = 10.0f; 
     public int acsélération = 10;
     public int frein = 1;
+    public int puch = 1;
     private bool Flag_acseleration=false;
     private bool Flag_frein=false;
     private Vector3 transform_forward;
@@ -32,18 +32,18 @@ public class scipt_joueur : MonoBehaviour
         //transform_forward = Quaternion.AngleAxis(90, Vector3.back) * transform.forward;
         //Vector3 transform_back = Vector3.Dot(transform_forward, back);
         //new Vector3(transform_forward.x,transform_forward.y*-1,transform_forward.z);
-        float horizontal = Input.GetAxis("Mouse X") * speed_angle;
+        float horizontal = Input.GetAxis("Mouse Y") * speed_angle;
         transform.Rotate(0, horizontal, 0);
         transform_forward = Quaternion.AngleAxis(horizontal, Vector3.up) * transform_forward;
         if (Flag_acseleration)
         {
             print("tomacseleration");
-            GetComponent<Rigidbody>().AddForce((Quaternion.AngleAxis(90, Vector3.up) * transform.forward) * acsélération, ForceMode.Acceleration);
+            GetComponent<Rigidbody>().AddForce( transform.forward * acsélération, ForceMode.Acceleration);
         }
         if (Flag_frein)
         {
             print("frein");
-            GetComponent<Rigidbody>().AddForce((Quaternion.AngleAxis(-90, Vector3.up) * transform.forward) * (GetComponent<Rigidbody>().velocity.magnitude*frein), ForceMode.Force);
+            GetComponent<Rigidbody>().AddForce( transform.forward * GetComponent<Rigidbody>().velocity.magnitude*frein, ForceMode.Force);
         }
         Debug.DrawRay(transform.position, transform.forward,Color.red);
     }
@@ -54,39 +54,38 @@ public class scipt_joueur : MonoBehaviour
         // transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0); 
         if (timer_rember > -1)
         {
-            if (timer_rember > 0.5f)
-            {
+            if(timer_rember > 0.5f) { 
                 timer_rember = -1;
                 Gamepad.current.SetMotorSpeeds(0, 0);
 
             }
             timer_rember += Time.deltaTime;
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.R))
         { Flag_acseleration = true;
-            print("Up");
+            print("puch_R");
         }
-        if (Input.GetKeyUp(KeyCode.UpArrow))
+        if (Input.GetKeyUp(KeyCode.R))
         { Flag_acseleration = false; }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.S))
         { Flag_frein = true;
-            print("Down");
+            print("puch_S");  
         }
-        if (Input.GetKeyUp(KeyCode.DownArrow))
+        if (Input.GetKeyUp(KeyCode.S))
         { Flag_frein = false; }
-        if (Input.GetKeyDown(KeyCode.P))
+        if(Input.GetKeyDown(KeyCode.T))
         { GetComponent<Rigidbody>().AddForce(Quaternion.AngleAxis(90, Vector3.up) * transform.forward * puch, ForceMode.Impulse); }
     }
     private void OnCollisionEnter(Collision other)
     {
         print("touch");
-        if (other.gameObject.tag == "wall")
+        if (other.gameObject.tag=="wall")
         {
-            
-            // Rigidbody Rigidbody = other.gameObject.GetComponent<Rigidbody>();
-            print("vribation_1");
+          //  Rigidbody Rigidbody = other.gameObject.GetComponent<Rigidbody>();
+            print("vibration_2");
             timer_rember = 0;
             Gamepad.current.SetMotorSpeeds(0.5f, 0.5f);
+
             // Vérifie si la balle a un Rigidbody
             /* if (Rigidbody != null)
              {
